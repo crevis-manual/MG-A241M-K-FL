@@ -84,19 +84,22 @@
             margin-bottom: 40px;
             padding-bottom: 20px;
         }
-        /* 크래비스 로고 사이즈 조절 */
+       /* 로고 스타일 - 강제 너비 지정 */
         .header-logo {
+            width: 100%;
             max-width: 220px;
             height: auto;
+            display: block;
         }
 
-        /* 카메라 사진 사이즈 조절 */
+        /* 카메라 사진 스타일 - 강제 너비 지정 및 겹침 방지 */
         .header-camera-main {
+            width: 100%;
             max-width: 200px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+            display: block;
 
         .category-label {
             color: var(--accent-color);
@@ -339,7 +342,7 @@
 </nav>
 
 <div class="content">
-    <header class="header-box">
+        <header class="header-box">
         <div class="header-text">
             <p class="category-label">High Resolution GigE Vision Camera</p>
             <h1 class="model-title">MG-A241M/K-FL</h1>
@@ -347,10 +350,10 @@
         </div>
         
         <div class="header-visual-group">
-            <!-- 크래비스 로고 추가 -->
+            <!-- 크래비스 로고: 우측 상단 정렬 -->
             <img src="images/crevis_logo.jpg" class="header-logo" alt="Crevis Logo">
-            <!-- 카메라 사진 추가 -->
-            <img src="images/gige camera.png" class="header-camera-main" alt="MG-A241 Camera">
+            <!-- 카메라 사진: 로고 바로 아래 정렬 -->
+            <img src="images/gige camera.jpg" class="header-camera-main" alt="MG-A241 Camera">
         </div>
     </header>
 
