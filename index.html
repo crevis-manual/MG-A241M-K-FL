@@ -78,16 +78,35 @@
             box-sizing: border-box;
         }
 
-        /* 헤더 섹션 */
+        /* 헤더 섹션 - 겹침 방지를 위한 레이아웃 강화 */
         .header-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             border-bottom: 4px solid var(--primary-color);
             margin-bottom: 40px;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
+            gap: 20px; /* 텍스트와 이미지 사이 간격 확보 */
         }
-       /* 로고 스타일 - 강제 너비 지정 */
+
+        .header-text {
+            flex: 1; /* 가용한 모든 공간 차지 */
+            min-width: 0; /* 텍스트 오버플로우 방지 */
+        }
+
+        /* 우측 상단 이미지 그룹 - 너비 고정 및 수직 정렬 */
+        .header-visual-group {
+            flex: 0 0 250px; /* 이미지 영역 너비를 250px로 고정 */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+        /* 로고 스타일 - 강제 너비 지정 */
         .header-logo {
             width: 100%;
-            max-width: 180px;
+            max-width: 200px;
             height: auto;
             display: block;
         }
@@ -100,6 +119,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             display: block;
+        }
 
         .category-label {
             color: var(--accent-color);
@@ -169,15 +189,8 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* 백패널 이미지 전용 (크기 추가 축소 강제) */
-        .img-backpanel {
-            max-width: 140px; /* 기존 180px에서 140px로 축소 */
-        }
-
-        /* 6핀 커넥터 이미지 전용 (크기 추가 축소 강제) */
-        .img-pinmap {
-            max-width: 180px; /* 기존 160px에서 120px로 축소 */
-        }
+        .img-backpanel { max-width: 140px; }
+        .img-pinmap { max-width: 120px; }
 
         .interface-table-wrapper {
             flex: 1;
@@ -308,14 +321,10 @@
         }
 
         @media screen and (max-width: 900px) {
-            .interface-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            .interface-visual {
-                width: 100%;
-            }
+            .header-box { flex-direction: column; align-items: center; text-align: center; }
+            .header-visual-group { align-items: center; margin-left: 0; margin-top: 20px; flex: 0 0 auto; }
+            .interface-container { flex-direction: column; align-items: center; gap: 20px; }
+            .interface-visual { width: 100%; }
             .visual-grid { grid-template-columns: 1fr; }
         }
 
@@ -329,7 +338,7 @@
 <body>
 
 <nav class="sidebar">
-    <h2>MG-A241M/K-FL</h2>
+    <h2>MG-A241 Series</h2>
     <ul>
         <li><a href="#overview">1. Product Overview</a></li>
         <li><a href="#features">2. Key Features</a></li>
@@ -342,7 +351,8 @@
 </nav>
 
 <div class="content">
-        <header class="header-box">
+    <!-- 헤더 영역: 겹침 방지를 위해 너비 제어 적용 -->
+    <header class="header-box">
         <div class="header-text">
             <p class="category-label">High Resolution GigE Vision Camera</p>
             <h1 class="model-title">MG-A241M/K-FL</h1>
