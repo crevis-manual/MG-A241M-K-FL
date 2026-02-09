@@ -172,39 +172,15 @@
         th {
             background-color: #f1f4f7;
             color: #2c3e50;
-            width: 30%;
             font-weight: 600;
-        }
-        
-        .sub-header {
-            background-color: #f8f9fa;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-align: center;
         }
 
         tr:hover {
             background-color: #fafafa;
         }
 
-        /* Info/Notice Boxes */
-        .box {
-            padding: 20px;
-            border-radius: 6px;
-            margin: 25px 0;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .note {
-            background-color: #e8f4fd;
-            border-left: 5px solid #3498db;
-        }
-
-        .note-icon {
-            margin-right: 15px;
-            font-size: 1.5rem;
-            color: #3498db;
+        .text-center {
+            text-align: center;
         }
 
         /* Visual Layouts (Images) */
@@ -224,7 +200,6 @@
             text-align: center;
         }
 
-        /* Dimension Specific Style */
         .dimension-block {
             background: #fff;
             border: 1px solid #d1d9e0;
@@ -235,20 +210,11 @@
             box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
         }
 
-        .dimension-block img {
+        .dimension-block img, .visual-block img {
             max-width: 100%;
             height: auto;
             display: block;
             margin: 0 auto;
-            filter: contrast(1.1);
-        }
-
-        .visual-block img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 4px;
         }
 
         .caption {
@@ -256,6 +222,25 @@
             color: #888;
             margin-top: 15px;
             font-weight: 600;
+        }
+
+        .box {
+            padding: 20px;
+            border-radius: 6px;
+            margin: 25px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .note {
+            background-color: #e8f4fd;
+            border-left: 5px solid #3498db;
+        }
+
+        .note-icon {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: #3498db;
         }
 
         footer {
@@ -268,9 +253,7 @@
         }
 
         @media screen and (max-width: 768px) {
-            .visual-grid {
-                grid-template-columns: 1fr;
-            }
+            .visual-grid { grid-template-columns: 1fr; }
         }
 
         @media print {
@@ -289,20 +272,19 @@
         <li><a href="#features">2. Key Features</a></li>
         <li><a href="#optical">3. Optical Response (QE)</a></li>
         <li><a href="#mechanical">4. Dimensions</a></li>
-        <li><a href="#specifications">5. Specifications</a></li>
-        <li><a href="#warranty">6. Warranty</a></li>
+        <li><a href="#interface">5. Interface & Pin Map</a></li>
+        <li><a href="#specifications">6. Specifications</a></li>
+        <li><a href="#warranty">7. Warranty</a></li>
     </ul>
 </nav>
 
 <div class="content">
-    <!-- Header Section -->
     <header class="header-box">
         <p class="category-label">High Resolution GigE Vision Camera</p>
         <h1 class="model-title">MG-A241M/K-FL</h1>
         <p class="model-subtitle">Sony CMOS Pregius S IMX540 | 24.5 MP | GigE Interface</p>
     </header>
 
-    <!-- 1. Product Overview -->
     <section id="overview">
         <h2>1. Product Overview</h2>
         <p>
@@ -311,7 +293,6 @@
         </p>
     </section>
 
-    <!-- 2. Key Features -->
     <section id="features">
         <h2>2. Key Features</h2>
         <div class="feature-grid">
@@ -334,7 +315,6 @@
         </div>
     </section>
 
-    <!-- 3. Optical Characteristics -->
     <section id="optical">
         <h2>3. Optical Characteristics (Spectral Response)</h2>
         <div class="visual-grid">
@@ -349,33 +329,67 @@
         </div>
     </section>
 
-    <!-- 4. Dimensions -->
     <section id="mechanical">
         <h2>4. Mechanical Dimensions</h2>
         <div class="dimension-block">
             <img src="images/dimension.png" alt="MG-A241 Detailed Mechanical Drawing">
             <p class="caption">Figure 3. Detailed Mechanical Outline (Unit: mm)</p>
         </div>
-        
-        <div class="box note">
-            <div class="note-icon">📏</div>
-            <div>
-                <strong>Key Dimensional Information:</strong>
-                <ul>
-                    <li>Housing Size: 29mm (W) x 29mm (H) x 40mm (D)</li>
-                    <li>Total Length: 57.1mm (Including lens mount)</li>
-                    <li>Mounting Holes: 4-M2 TAP (Top/Bottom), 3-M3 TAP (Bottom), 2-M2 TAP (Sides)</li>
-                    <li>Lens Mount: Standard C-Mount (Flange Back: 17.526mm)</li>
-                </ul>
-            </div>
-        </div>
     </section>
 
-    <!-- 5. Specifications -->
-    <section id="specifications">
-        <h2>5. Specifications</h2>
+    <!-- 5. Interface & Pin Map -->
+    <section id="interface">
+        <h2>5. Interface & Pin Map</h2>
         
-        <h3>5.1 Sensor & Image Performance</h3>
+        <h3>5.1 Back Panel Layout</h3>
+        <div class="visual-block" style="padding: 40px;">
+            <img src="images/backpanel.png" alt="Back Panel Layout" style="max-width: 300px;">
+            <p class="caption">Figure 4. Camera Back Panel Connectors</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 10%;" class="text-center">NO.</th>
+                    <th style="width: 40%;">Name</th>
+                    <th>Remark</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="text-center">1</td><td>Gigabit Ethernet Connector</td><td>RJ45</td></tr>
+                <tr><td class="text-center">2</td><td>Power & External I/O Connector</td><td>6-Pin Circular</td></tr>
+                <tr><td class="text-center">3, 4</td><td>LED Status Indicator</td><td>LED</td></tr>
+            </tbody>
+        </table>
+
+        <h3>5.2 DC IN & External I/O Pin Map (6-Pin Circular)</h3>
+        <div class="visual-block" style="padding: 40px;">
+            <img src="images/6pin.png" alt="6-pin Circular Connector Pin Map" style="max-width: 250px;">
+            <p class="caption">Figure 5. 6-pin Circular Connector Pin Assignment</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%;" class="text-center">No.</th>
+                    <th style="width: 20%;">Name</th>
+                    <th style="width: 12%;" class="text-center">IN/OUT</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="text-center">1</td><td>DC VCC</td><td class="text-center">IN</td><td>10.8V ~ 13.2V Input Range</td></tr>
+                <tr><td class="text-center">2</td><td>TRIGGER+</td><td class="text-center">IN</td><td>Opto-isolated Trigger input (+4.5V ~ 24V)</td></tr>
+                <tr><td class="text-center">3</td><td>STROBE-</td><td class="text-center">OUT</td><td>-</td></tr>
+                <tr><td class="text-center">4</td><td>STROBE+</td><td class="text-center">OUT</td><td>Opto-isolated Strobe output</td></tr>
+                <tr><td class="text-center">5</td><td>TRIGGER-</td><td class="text-center">IN</td><td>-</td></tr>
+                <tr><td class="text-center">6</td><td>DC GND</td><td class="text-center">IN</td><td>-</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="specifications">
+        <h2>6. Specifications</h2>
+        
+        <h3>6.1 Sensor & Image Performance</h3>
         <table>
             <thead>
                 <tr>
@@ -397,7 +411,7 @@
             </tbody>
         </table>
 
-        <h3>5.2 Camera Control & Functions</h3>
+        <h3>6.2 Camera Control & Functions</h3>
         <table>
             <tbody>
                 <tr><th>Synchronization</th><td colspan="2">Internal (Freerun), External, Software trigger via PC</td></tr>
@@ -411,25 +425,22 @@
             </tbody>
         </table>
 
-        <h3>5.3 Electrical & Mechanical</h3>
+        <h3>6.3 Electrical & Mechanical Summary</h3>
         <table>
             <tbody>
                 <tr><th>Interface</th><td colspan="2">Ethernet 1000 Base-T (GigE Vision Standard)</td></tr>
                 <tr><th>Digital I/O</th><td colspan="2">6-pin P7 connector (Opto-isolated I/O)</td></tr>
                 <tr><th>Power Supply</th><td colspan="2">12VDC ± 10% or PoE (Power over Ethernet)</td></tr>
                 <tr><th>Consumption</th><td>DC : < 3.8 W</td><td>PoE : < 4.3 W</td></tr>
-                <tr><th>Lens Mount</th><td colspan="2">C-mount</td></tr>
                 <tr><th>Dimension / Weight</th><td colspan="2">29 x 29 x 40 mm (without mount) / < 65 g</td></tr>
-                <tr><th>Environmental</th><td colspan="2">Operating: 0°C ~ +40°C / Storage: -10°C ~ +50°C (20~80% RH)</td></tr>
-                <tr><th>Vibration / Shock</th><td colspan="2">98 m/s² (10.0 G) / 196 m/s² (20.0 G)</td></tr>
-                <tr><th>Standard / Compliance</th><td colspan="2">CE (EN61326-1; 2006; Class A), FCC, RoHS, WEEE, UL, KC</td></tr>
+                <tr><th>Environmental</th><td colspan="2">Operating: 0°C ~ +50°C(at housing) / Storage: -10°C ~ +50°C (20~80% RH)</td></tr>
+                <tr><th>Standard / Compliance</th><td colspan="2">CE, FCC, RoHS, WEEE, UL, KC</td></tr>
             </tbody>
         </table>
     </section>
 
-    <!-- 6. Warranty -->
     <section id="warranty">
-        <h2>6. Warranty</h2>
+        <h2>7. Warranty</h2>
         <div class="box note" style="background-color: #f0fdf4; border-left-color: #22c55e;">
             <div class="note-icon" style="color: #22c55e;">🛡️</div>
             <div>
