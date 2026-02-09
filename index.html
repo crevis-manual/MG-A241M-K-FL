@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MG-A241M/K-FL Datasheet</title>
     <style>
-        /* Design System Configuration */
+        /* 디자인 시스템 설정 */
         :root {
             --primary-color: #1a2a3a;
             --accent-color: #e67e22;
@@ -22,7 +22,7 @@
             background-color: var(--bg-light);
         }
 
-        /* Sidebar Navigation */
+        /* 사이드바 네비게이션 */
         .sidebar {
             width: var(--sidebar-width);
             background: var(--primary-color);
@@ -66,19 +66,19 @@
             padding-left: 5px;
         }
 
-        /* Main Content Area */
+        /* 메인 컨텐츠 영역 */
         .content {
             margin-left: var(--sidebar-width);
             padding: 60px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1100px;
             background: white;
             min-height: 100vh;
             box-shadow: -5px 0 15px rgba(0,0,0,0.05);
             box-sizing: border-box;
         }
 
-        /* Header Section */
+        /* 헤더 섹션 */
         .header-box {
             border-bottom: 4px solid var(--primary-color);
             margin-bottom: 40px;
@@ -107,7 +107,7 @@
             margin: 0;
         }
 
-        /* Section Titles */
+        /* 섹션 타이틀 */
         h2 {
             font-size: 1.6rem;
             color: var(--primary-color);
@@ -127,7 +127,47 @@
             border-radius: 4px;
         }
 
-        /* Key Features Grid */
+        /* 인터페이스 레이아웃 (Side-by-Side) */
+        .interface-container {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin: 20px 0;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .interface-visual {
+            flex: 0 0 auto;
+            text-align: center;
+        }
+
+        .interface-visual img {
+            height: auto;
+            border: 1px solid #eee;
+            padding: 5px;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* 백패널 이미지 전용 (크기 추가 축소 강제) */
+        .img-backpanel {
+            max-width: 140px; /* 기존 180px에서 140px로 축소 */
+        }
+
+        /* 6핀 커넥터 이미지 전용 (크기 추가 축소 강제) */
+        .img-pinmap {
+            max-width: 180px; /* 기존 160px에서 120px로 축소 */
+        }
+
+        .interface-table-wrapper {
+            flex: 1;
+        }
+
+        /* 주요 특징 그리드 */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -155,11 +195,10 @@
             margin-bottom: 8px;
         }
 
-        /* Table Design */
+        /* 테이블 디자인 */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
             font-size: 0.85rem;
         }
 
@@ -183,7 +222,7 @@
             text-align: center;
         }
 
-        /* Visual Layouts (Images) */
+        /* 시각 자료 레이아웃 */
         .visual-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -218,9 +257,9 @@
         }
 
         .caption {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: #888;
-            margin-top: 15px;
+            margin-top: 12px;
             font-weight: 600;
         }
 
@@ -252,14 +291,22 @@
             text-align: center;
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 900px) {
+            .interface-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .interface-visual {
+                width: 100%;
+            }
             .visual-grid { grid-template-columns: 1fr; }
         }
 
         @media print {
             .sidebar { display: none; }
             .content { margin-left: 0; padding: 20px; }
-            .visual-block, .dimension-block { page-break-inside: avoid; }
+            .interface-container { break-inside: avoid; }
         }
     </style>
 </head>
@@ -285,6 +332,7 @@
         <p class="model-subtitle">Sony CMOS Pregius S IMX540 | 24.5 MP | GigE Interface</p>
     </header>
 
+    <!-- 1. Product Overview -->
     <section id="overview">
         <h2>1. Product Overview</h2>
         <p>
@@ -293,6 +341,7 @@
         </p>
     </section>
 
+    <!-- 2. Key Features -->
     <section id="features">
         <h2>2. Key Features</h2>
         <div class="feature-grid">
@@ -315,25 +364,27 @@
         </div>
     </section>
 
+    <!-- 3. Optical Response -->
     <section id="optical">
         <h2>3. Optical Characteristics (Spectral Response)</h2>
         <div class="visual-grid">
             <div class="visual-block">
-                <img src="images/qe mono.png" alt="MG-A241M-FL Spectral Response Graph">
-                <p class="caption">Figure 1. Relative Spectral Response<br>MG-A241M-FL (Mono)</p>
+                <img src="images/qe mono.png" alt="Mono QE Graph">
+                <p class="caption">Mono Model (MG-A241M-FL)</p>
             </div>
             <div class="visual-block">
-                <img src="images/qe color.png" alt="MG-A241K-FL Spectral Response Graph">
-                <p class="caption">Figure 2. Relative Spectral Response<br>MG-A241K-FL (Color)</p>
+                <img src="images/qe color.png" alt="Color QE Graph">
+                <p class="caption">Color Model (MG-A241K-FL)</p>
             </div>
         </div>
     </section>
 
+    <!-- 4. Dimensions -->
     <section id="mechanical">
         <h2>4. Mechanical Dimensions</h2>
         <div class="dimension-block">
-            <img src="images/dimension.png" alt="MG-A241 Detailed Mechanical Drawing">
-            <p class="caption">Figure 3. Detailed Mechanical Outline (Unit: mm)</p>
+            <img src="images/dimension.png" alt="Mechanical Outline">
+            <p class="caption">Detailed Mechanical Outline (Unit: mm)</p>
         </div>
     </section>
 
@@ -342,50 +393,59 @@
         <h2>5. Interface & Pin Map</h2>
         
         <h3>5.1 Back Panel Layout</h3>
-        <div class="visual-block" style="padding: 40px;">
-            <img src="images/backpanel.png" alt="Back Panel Layout" style="max-width: 300px;">
-            <p class="caption">Figure 4. Camera Back Panel Connectors</p>
+        <div class="interface-container">
+            <div class="interface-visual">
+                <img src="images/backpanel.png" class="img-backpanel" alt="Back Panel Layout">
+                <p class="caption">Back Panel</p>
+            </div>
+            <div class="interface-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;" class="text-center">NO.</th>
+                            <th style="width: 45%;">Name</th>
+                            <th>Remark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="text-center">1</td><td>Gigabit Ethernet Connector</td><td>RJ45</td></tr>
+                        <tr><td class="text-center">2</td><td>Power & External I/O Connector</td><td>6-Pin Circular</td></tr>
+                        <tr><td class="text-center">3, 4</td><td>LED Status Indicator</td><td>LED</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 10%;" class="text-center">NO.</th>
-                    <th style="width: 40%;">Name</th>
-                    <th>Remark</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="text-center">1</td><td>Gigabit Ethernet Connector</td><td>RJ45</td></tr>
-                <tr><td class="text-center">2</td><td>Power & External I/O Connector</td><td>6-Pin Circular</td></tr>
-                <tr><td class="text-center">3, 4</td><td>LED Status Indicator</td><td>LED</td></tr>
-            </tbody>
-        </table>
 
-        <h3>5.2 DC IN & External I/O Pin Map (6-Pin Circular)</h3>
-        <div class="visual-block" style="padding: 40px;">
-            <img src="images/6pin.png" alt="6-pin Circular Connector Pin Map" style="max-width: 250px;">
-            <p class="caption">Figure 5. 6-pin Circular Connector Pin Assignment</p>
+        <h3>5.2 DC IN & External I/O Pin Map</h3>
+        <div class="interface-container">
+            <div class="interface-visual">
+                <img src="images/6pin.png" class="img-pinmap" alt="6-pin Circular Pin Map">
+                <p class="caption">6-pin Circular</p>
+            </div>
+            <div class="interface-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 12%;" class="text-center">No.</th>
+                            <th style="width: 25%;">Name</th>
+                            <th style="width: 15%;" class="text-center">I/O</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="text-center">1</td><td>DC VCC</td><td class="text-center">IN</td><td>10.8V ~ 13.2V Input</td></tr>
+                        <tr><td class="text-center">2</td><td>TRIGGER+</td><td class="text-center">IN</td><td>Opto (+4.5V ~ 24V)</td></tr>
+                        <tr><td class="text-center">3</td><td>STROBE-</td><td class="text-center">OUT</td><td>Common for output</td></tr>
+                        <tr><td class="text-center">4</td><td>STROBE+</td><td class="text-center">OUT</td><td>Opto-isolated Strobe</td></tr>
+                        <tr><td class="text-center">5</td><td>TRIGGER-</td><td class="text-center">IN</td><td>Common for input</td></tr>
+                        <tr><td class="text-center">6</td><td>DC GND</td><td class="text-center">IN</td><td>Power ground</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 8%;" class="text-center">No.</th>
-                    <th style="width: 20%;">Name</th>
-                    <th style="width: 12%;" class="text-center">IN/OUT</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td class="text-center">1</td><td>DC VCC</td><td class="text-center">IN</td><td>10.8V ~ 13.2V Input Range</td></tr>
-                <tr><td class="text-center">2</td><td>TRIGGER+</td><td class="text-center">IN</td><td>Opto-isolated Trigger input (+4.5V ~ 24V)</td></tr>
-                <tr><td class="text-center">3</td><td>STROBE-</td><td class="text-center">OUT</td><td>-</td></tr>
-                <tr><td class="text-center">4</td><td>STROBE+</td><td class="text-center">OUT</td><td>Opto-isolated Strobe output</td></tr>
-                <tr><td class="text-center">5</td><td>TRIGGER-</td><td class="text-center">IN</td><td>-</td></tr>
-                <tr><td class="text-center">6</td><td>DC GND</td><td class="text-center">IN</td><td>-</td></tr>
-            </tbody>
-        </table>
     </section>
 
+    <!-- 6. Specifications -->
     <section id="specifications">
         <h2>6. Specifications</h2>
         
@@ -393,56 +453,51 @@
         <table>
             <thead>
                 <tr>
-                    <th>Parameter</th>
+                    <th style="width: 30%;">Parameter</th>
                     <th>MG-A241M-FL</th>
                     <th>MG-A241K-FL</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><th>Model Name</th><td>MG-A241M-FL (Mono Chrome)</td><td>MG-A241K-FL (Color)</td></tr>
+                <tr><th>Model Name</th><td>Mono Chrome</td><td>Color</td></tr>
                 <tr><th>Sensor Model</th><td colspan="2">Sony CMOS Pregius S IMX540</td></tr>
                 <tr><th>Sensor Size / Shutter</th><td colspan="2">1.2 inch / Global Shutter</td></tr>
                 <tr><th>Resolution</th><td colspan="2">5328 x 4608</td></tr>
                 <tr><th>Pixel Size</th><td colspan="2">2.74 µm x 2.74 µm</td></tr>
                 <tr><th>Frame Rate (Max.)</th><td colspan="2">4 fps</td></tr>
                 <tr><th>SNR</th><td>38 dB</td><td>39 dB</td></tr>
-                <tr><th>Scanning Method</th><td>Full / ROI / Reverse(X,Y,All) / Decimation / Binning</td><td>Full / ROI / Reverse / Decimation</td></tr>
-                <tr><th>Pixel Data Format</th><td>Mono8/10/12, Mono10/12Packed</td><td>Mono8/10/12, Mono10/12Packed, BayerRG8/10/12, BayerRG10/12Packed, YUV422Packed</td></tr>
+                <tr><th>Scanning Method</th><td>Full / ROI / Reverse / Decimation / Binning</td><td>Full / ROI / Reverse / Decimation</td></tr>
             </tbody>
         </table>
 
         <h3>6.2 Camera Control & Functions</h3>
         <table>
             <tbody>
-                <tr><th>Synchronization</th><td colspan="2">Internal (Freerun), External, Software trigger via PC</td></tr>
-                <tr><th>Trigger Mode</th><td colspan="2">Fixed shutter, Pulse width shutter</td></tr>
-                <tr><th>Shutter Speed</th><td colspan="2">1 µs ~ 3 sec (Exposure Offset: Separate)</td></tr>
-                <tr><th>Gain Control</th><td colspan="2">Analog : 0 ~ 24 dB (1x~15.8x) / Digital : 0 ~ 24 dB (1x~16x)</td></tr>
-                <tr><th>Black Level</th><td colspan="2">Analog/Digital : 0 ~ 4095 (12bit)</td></tr>
-                <tr><th>Gamma / LUT</th><td colspan="2">Gamma Correction (0 ~ 3.999), Adjustable LUT (12bit to 12bit)</td></tr>
-                <tr><th>Auto Functions</th><td>Auto Gain / Exposure (Off/Once/Continuous)</td><td>Auto White Balance (Color only), Auto Gain/Exposure</td></tr>
-                <tr><th>Additional Control</th><td colspan="2">Acquisition Frame Rate (Adjustable), Line Debouncer, Color Transformation Control, Noise Reduction Filter</td></tr>
+                <tr><th style="width: 30%;">Synchronization</th><td colspan="2">Internal, External, Software trigger</td></tr>
+                <tr><th>Shutter Speed</th><td colspan="2">1 µs ~ 3 sec</td></tr>
+                <tr><th>Gain Control</th><td colspan="2">Analog/Digital : 0 ~ 24 dB</td></tr>
+                <tr><th>Gamma / LUT</th><td colspan="2">Adjustable Gamma and 12-bit LUT</td></tr>
+                <tr><th>Auto Functions</th><td>Auto Gain / Exposure</td><td>Auto White Balance / Gain / Exp</td></tr>
             </tbody>
         </table>
 
-        <h3>6.3 Electrical & Mechanical Summary</h3>
+        <h3>6.3 Electrical & Environmental</h3>
         <table>
             <tbody>
-                <tr><th>Interface</th><td colspan="2">Ethernet 1000 Base-T (GigE Vision Standard)</td></tr>
-                <tr><th>Digital I/O</th><td colspan="2">6-pin P7 connector (Opto-isolated I/O)</td></tr>
-                <tr><th>Power Supply</th><td colspan="2">12VDC ± 10% or PoE (Power over Ethernet)</td></tr>
+                <tr><th style="width: 30%;">Interface</th><td colspan="2">Ethernet 1000 Base-T (GigE Vision)</td></tr>
+                <tr><th>Power Supply</th><td colspan="2">12VDC ± 10% or PoE</td></tr>
                 <tr><th>Consumption</th><td>DC : < 3.8 W</td><td>PoE : < 4.3 W</td></tr>
-                <tr><th>Dimension / Weight</th><td colspan="2">29 x 29 x 40 mm (without mount) / < 65 g</td></tr>
-                <tr><th>Environmental</th><td colspan="2">Operating: 0°C ~ +50°C(at housing) / Storage: -10°C ~ +50°C (20~80% RH)</td></tr>
-                <tr><th>Standard / Compliance</th><td colspan="2">CE, FCC, RoHS, WEEE, UL, KC</td></tr>
+                <tr><th>Dimension / Weight</th><td colspan="2">29 x 29 x 40 mm / < 65 g</td></tr>
+                <tr><th>Operating Temp.</th><td colspan="2">0°C ~ +50°C (at housing)</td></tr>
+                <tr><th>Standard</th><td colspan="2">CE, FCC, RoHS, KC, UL</td></tr>
             </tbody>
         </table>
     </section>
 
+    <!-- 7. Warranty -->
     <section id="warranty">
         <h2>7. Warranty</h2>
         <div class="box note" style="background-color: #f0fdf4; border-left-color: #22c55e;">
-            <div class="note-icon" style="color: #22c55e;">🛡️</div>
             <div>
                 <strong>3-Year Limited Warranty:</strong> 
                 Provides free warranty service for product defects for <strong>3 years</strong> from the date of purchase. 
